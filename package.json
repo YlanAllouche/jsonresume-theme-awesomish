@@ -1,5 +1,5 @@
 {
-  "name": "jsonresume-theme-awesomeish",
+  "name": "jsonresume-theme-awesomish",
   "version": "0.1.0",
   "description": "An awesome inspiered jsonresume theme",
   "author": "Ylan Allouche",
@@ -30,4 +30,3 @@
     "puppeteer": "^21.0.0"
   }
 }
-

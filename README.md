@@ -2,7 +2,9 @@
 
 A clean, modern, and condensed JSON Resume theme heavily "inspired" by [Awesome-CV](https://github.com/posquit0/Awesome-CV) and [jsoncv](https://github.com/reorx/jsoncv) 
 
+---
 ![](./awesomish-1.jpg)
+---
 ![](./awesomish-2.jpg)
 
 ## Features
