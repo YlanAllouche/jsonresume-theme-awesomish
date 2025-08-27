@@ -1,0 +1,396 @@
+{
+  "basics": {
+    "name": "Sarah Johnson",
+    "label": "Senior Full-Stack Developer & Technical Lead",
+    "image": "",
+    "email": "sarah.johnson@email.com",
+    "phone": "+1 (555) 123-4567",
+    "url": "https://sarahjohnson.dev",
+    "summary": "Experienced full-stack developer with 8+ years in building scalable web applications and leading technical teams. Specialized in React, Node.js, and cloud architecture. Passionate about mentoring junior developers and driving technical excellence through best practices and innovative solutions.",
+    "location": {
+      "address": "1234 Tech Street",
+      "postalCode": "CA 94102",
+      "city": "San Francisco",
+      "countryCode": "US",
+      "region": "California"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "sarahjohnsondev",
+        "url": "https://linkedin.com/in/sarahjohnsondev"
+      },
+      {
+        "network": "GitHub",
+        "username": "sarahj-dev",
+        "url": "https://github.com/sarahj-dev"
+      },
+      {
+        "network": "Twitter",
+        "username": "sarahcodes",
+        "url": "https://twitter.com/sarahcodes"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "TechCorp Inc.",
+      "position": "Senior Full-Stack Developer",
+      "url": "https://techcorp.com",
+      "startDate": "2021-03-01",
+      "endDate": "",
+      "summary": "Lead development of core platform features serving 2M+ users. Architect scalable solutions using React, Node.js, and AWS infrastructure.",
+      "highlights": [
+        "Led migration from monolith to microservices, reducing deployment time by 75%",
+        "Mentored 5 junior developers, with 3 receiving promotions within 18 months",
+        "Implemented CI/CD pipeline reducing bug reports by 60%",
+        "Designed and built real-time chat system handling 50K+ concurrent connections"
+      ]
+    },
+    {
+      "name": "TechCorp Inc.",
+      "url": "https://techcorp.com",
+      "position": "Junior Full-Stack Developer",
+      "startDate": "2020-03-01",
+      "endDate": "2021-03-01",
+      "summary": "Lead development of core platform features serving 2M+ users. Architect scalable solutions using React, Node.js, and AWS infrastructure.",
+      "highlights": [
+        "Led migration from monolith to microservices, reducing deployment time by 75%",
+        "Mentored 5 junior developers, with 3 receiving promotions within 18 months",
+        "Implemented CI/CD pipeline reducing bug reports by 60%",
+        "Designed and built real-time chat system handling 50K+ concurrent connections"
+      ]
+    },
+    {
+      "name": "StartupXYZ",
+      "position": "Full-Stack Developer",
+      "url": "https://startupxyz.com",
+      "startDate": "2019-06-01",
+      "endDate": "2021-02-28",
+      "summary": "Built MVP and scaled to 100K users. Worked across the entire stack from database design to frontend UX.",
+      "highlights": [
+        "Developed core product features that drove 200% user growth in first year",
+        "Optimized database queries reducing average response time from 800ms to 120ms",
+        "Implemented automated testing suite achieving 95% code coverage",
+        "Built mobile-responsive web app supporting iOS and Android users"
+      ]
+    },
+    {
+      "name": "Digital Agency Co.",
+      "position": "Frontend Developer",
+      "url": "https://digitalagency.com",
+      "startDate": "2017-08-01",
+      "endDate": "2019-05-31",
+      "summary": "Delivered custom web solutions for clients ranging from startups to Fortune 500 companies.",
+      "highlights": [
+        "Built 25+ responsive websites using React, Vue.js, and vanilla JavaScript",
+        "Improved client website performance by average of 40% through optimization techniques",
+        "Collaborated with design team to create pixel-perfect implementations",
+        "Managed projects from requirements gathering to deployment"
+      ]
+    },
+    {
+      "name": "FreelanceWeb Solutions",
+      "position": "Web Developer",
+      "url": "",
+      "startDate": "2016-01-01",
+      "endDate": "2017-07-31",
+      "summary": "Provided web development services to small businesses and startups.",
+      "highlights": [
+        "Completed 15+ projects including e-commerce sites and business websites",
+        "Managed full project lifecycle from client consultation to maintenance",
+        "Built custom WordPress themes and plugins for specific client needs"
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Code for Good",
+      "position": "Technical Mentor",
+      "url": "https://codeforgood.org/",
+      "startDate": "2020-01-01",
+      "endDate": "",
+      "summary": "Mentor aspiring developers from underrepresented backgrounds, providing technical guidance and career advice.",
+      "highlights": [
+        "Mentored 20+ developers through career transitions into tech",
+        "Organized monthly coding workshops for beginners",
+        "Created open-source learning resources used by 1000+ developers"
+      ]
+    },
+    {
+      "organization": "Local Animal Shelter",
+      "position": "Website Volunteer",
+      "url": "https://localanimalshelter.org/",
+      "startDate": "2018-03-01",
+      "endDate": "2020-12-31",
+      "summary": "Redesigned and maintained the shelter's website to improve pet adoption rates.",
+      "highlights": [
+        "Increased online adoption applications by 150%",
+        "Built donation system that raised $25K+ for shelter operations",
+        "Trained staff on website content management"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of California, Berkeley",
+      "url": "https://berkeley.edu/",
+      "area": "Computer Science",
+      "studyType": "Bachelor of Science",
+      "startDate": "2012-08-01",
+      "endDate": "2016-05-31",
+      "score": "3.8/4.0",
+      "courses": [
+        "CS61A - Structure and Interpretation of Computer Programs",
+        "CS61B - Data Structures and Algorithms",
+        "CS186 - Database Systems",
+        "CS162 - Operating Systems",
+        "CS169 - Software Engineering"
+      ]
+    },
+    {
+      "institution": "Coding Bootcamp Pro",
+      "url": "https://codingbootcamp.com/",
+      "area": "Full-Stack Web Development",
+      "studyType": "Certificate",
+      "startDate": "2015-06-01",
+      "endDate": "2015-12-31",
+      "score": "",
+      "courses": [
+        "JavaScript Fundamentals",
+        "React & Redux",
+        "Node.js & Express",
+        "Database Design & SQL"
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "title": "Employee of the Year",
+      "date": "2022-12-01",
+      "awarder": "TechCorp Inc.",
+      "summary": "Recognized for exceptional technical leadership and mentoring contributions that significantly impacted team productivity and culture."
+    },
+    {
+      "title": "Best Technical Innovation",
+      "date": "2021-09-15",
+      "awarder": "StartupXYZ",
+      "summary": "Awarded for designing and implementing the real-time notification system that became a core product differentiator."
+    },
+    {
+      "title": "Dean's List",
+      "date": "2016-05-31",
+      "awarder": "UC Berkeley",
+      "summary": "Achieved Dean's List recognition for academic excellence in final semester."
+    }
+  ],
+  "certificates": [
+    {
+      "name": "AWS Certified Solutions Architect",
+      "date": "2023-03-15",
+      "issuer": "Amazon Web Services",
+      "url": "https://aws.amazon.com/certification/"
+    },
+    {
+      "name": "Google Cloud Professional Developer",
+      "date": "2022-08-20",
+      "issuer": "Google Cloud",
+      "url": "https://cloud.google.com/certification"
+    },
+    {
+      "name": "Certified Scrum Master",
+      "date": "2021-11-07",
+      "issuer": "Scrum Alliance",
+      "url": "https://scrumalliance.org"
+    }
+  ],
+  "publications": [
+    {
+      "name": "Building Scalable React Applications: A Comprehensive Guide",
+      "publisher": "Tech Daily Blog",
+      "releaseDate": "2023-06-15",
+      "url": "https://techdaily.com/scalable-react-guide",
+      "summary": "A detailed guide covering advanced React patterns, state management, and performance optimization techniques for enterprise applications."
+    },
+    {
+      "name": "Microservices Migration: Lessons Learned",
+      "publisher": "DevOps Weekly",
+      "releaseDate": "2022-11-03",
+      "url": "https://devopsweekly.com/microservices-migration",
+      "summary": "Practical insights and strategies for successfully migrating legacy monolithic applications to microservices architecture."
+    }
+  ],
+  "skills": [
+    {
+      "name": "Frontend Development",
+      "level": "Expert",
+      "keywords": [
+        "React",
+        "Vue.js",
+        "TypeScript",
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "Sass/SCSS",
+        "Webpack",
+        "Vite"
+      ]
+    },
+    {
+      "name": "Backend Development",
+      "level": "Expert",
+      "keywords": [
+        "Node.js",
+        "Express.js",
+        "Python",
+        "Django",
+        "RESTful APIs",
+        "GraphQL",
+        "Microservices",
+        "WebSockets"
+      ]
+    },
+    {
+      "name": "Database & Storage",
+      "level": "Advanced",
+      "keywords": [
+        "PostgreSQL",
+        "MongoDB",
+        "Redis",
+        "MySQL",
+        "DynamoDB",
+        "Elasticsearch"
+      ]
+    },
+    {
+      "name": "Cloud & DevOps",
+      "level": "Advanced",
+      "keywords": [
+        "AWS",
+        "Google Cloud",
+        "Docker",
+        "Kubernetes",
+        "CI/CD",
+        "Jenkins",
+        "GitHub Actions",
+        "Terraform"
+      ]
+    },
+    {
+      "name": "Tools & Methodologies",
+      "level": "Advanced",
+      "keywords": [
+        "Git",
+        "Agile/Scrum",
+        "Jest",
+        "Cypress",
+        "Jira",
+        "Figma",
+        "Postman"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "Spanish",
+      "fluency": "Conversational"
+    },
+    {
+      "language": "French",
+      "fluency": "Basic"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Open Source",
+      "keywords": [
+        "Contributing to React ecosystem",
+        "Maintaining developer tools",
+        "Community building"
+      ]
+    },
+    {
+      "name": "Technology",
+      "keywords": [
+        "AI/Machine Learning",
+        "Web3 & Blockchain",
+        "IoT Development",
+        "AR/VR"
+      ]
+    },
+    {
+      "name": "Outdoor Activities",
+      "keywords": ["Hiking", "Rock Climbing", "Photography", "Camping"]
+    },
+    {
+      "name": "Learning",
+      "keywords": [
+        "Technical writing",
+        "Public speaking",
+        "Mentoring",
+        "Conference talks"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "name": "Michael Chen",
+      "reference": "Sarah is an exceptional developer and technical leader. Her ability to architect scalable solutions while mentoring junior team members made her invaluable to our organization. She consistently delivered high-quality code and drove technical excellence across our team.",
+      "relationship": "Engineering Manager at TechCorp Inc."
+    },
+    {
+      "name": "Emily Rodriguez",
+      "reference": "Working with Sarah at StartupXYZ was inspiring. She has rare combination of technical depth and business acumen. Her contributions were instrumental in our successful product launch and subsequent growth to 100K users.",
+      "relationship": "CTO at StartupXYZ"
+    }
+  ],
+  "projects": [
+    {
+      "name": "DevTools Dashboard",
+      "startDate": "2023-01-01",
+      "endDate": "2023-08-31",
+      "description": "Open-source developer productivity dashboard that aggregates metrics from multiple development tools and platforms.",
+      "highlights": [
+        "Built with React, Node.js, and GraphQL",
+        "Integrated with GitHub, Jira, and Slack APIs",
+        "Downloaded 10K+ times on npm",
+        "Featured in JavaScript Weekly newsletter"
+      ],
+      "url": "https://github.com/sarahj-dev/devtools-dashboard",
+      "keywords": ["React", "Node.js", "GraphQL", "Open Source"]
+    },
+    {
+      "name": "E-commerce Platform",
+      "startDate": "2022-03-01",
+      "endDate": "2022-10-31",
+      "description": "Full-stack e-commerce solution with real-time inventory management, payment processing, and admin dashboard.",
+      "highlights": [
+        "Handles 1000+ concurrent users",
+        "Integrated with Stripe and PayPal",
+        "Built responsive admin panel",
+        "Implemented advanced search and filtering"
+      ],
+      "url": "https://demo-ecommerce.sarahjohnson.dev",
+      "keywords": ["React", "Node.js", "PostgreSQL", "Stripe", "AWS"]
+    },
+    {
+      "name": "Real-time Chat Application",
+      "startDate": "2021-09-01",
+      "endDate": "2021-12-31",
+      "description": "Scalable chat application supporting multiple rooms, file sharing, and video calls.",
+      "highlights": [
+        "Built with Socket.io for real-time communication",
+        "Supports 50K+ concurrent connections",
+        "Integrated WebRTC for video calling",
+        "Mobile-responsive Progressive Web App"
+      ],
+      "url": "https://chat-app.sarahjohnson.dev",
+      "keywords": ["Socket.io", "WebRTC", "React", "PWA"]
+    }
+  ]
+}
+

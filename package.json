@@ -1,0 +1,33 @@
+{
+  "name": "jsonresume-theme-awesomeish",
+  "version": "0.1.0",
+  "description": "An awesome inspiered jsonresume theme",
+  "author": "Ylan Allouche",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "jsonresume",
+    "jsonresume-theme",
+    "clean"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "serve": "./node_modules/.bin/resume serve --theme . --resume ./test/sample.json",
+    "export:html": "./node_modules/.bin/resume export --theme . --resume ./test/sample.json resume-cli-output.html",
+    "export:pdf": "./node_modules/.bin/resume export --theme . --resume ./test/sample.json resume-cli-output.pdf",
+    "build:pdf": "node build.js --pdf",
+    "build:html": "node build.js",
+    "build": "node build.js --pdf",
+    "test": "node test/test.js"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.8",
+    "html-minifier": "^4.0.0",
+    "marked": "^11.1.1"
+  },
+  "devDependencies": {
+    "resume-cli": "^3.0.8",
+    "puppeteer": "^21.0.0"
+  }
+}
+

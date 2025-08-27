@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{resume.basics.name}}</title>
+  <meta name="description" content="{{resume.basics.summary}}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>{{{css}}}</style>
+</head>
+<body>
+<div class="cv-container">
+
+<!-- Basics -->
+<section class="basics-section">
+  <h1>{{resume.basics.name}}</h1>
+  {{#if resume.basics.label}}
+    <div class="label row subtitle">{{resume.basics.label}}</div>
+  {{/if}}
+  {{#if resume.basics.url}}
+    <div class="url row">
+      {{{getIconSVG 'mdi:link-variant'}}}
+      <a href="{{resume.basics.url}}" target="_blank">{{noSchemaURL resume.basics.url}}</a>
+    </div>
+  {{/if}}
+  {{#if resume.basics.summary}}
+    <div class="summary p">{{{markdown resume.basics.summary}}}</div>
+  {{/if}}
+  <div class="contact row">
+    {{#if resume.basics.email}}
+      <div class="item">
+        {{{getIconSVG 'mdi:email'}}}
+        <span><a href="mailto:{{resume.basics.email}}">{{resume.basics.email}}</a></span>
+      </div>
+    {{/if}}
+    {{#if resume.basics.phone}}
+      <div class="item">
+        {{{getIconSVG 'mdi:phone'}}}
+        <span>{{resume.basics.phone}}</span>
+      </div>
+    {{/if}}
+    {{#if resume.basics.location}}
+      <div class="item">
+        {{{getIconSVG 'mdi:location'}}}
+        <span>{{formatLocation resume.basics.location}}</span>
+      </div>
+    {{/if}}
+  </div>
+</section>
+
+<!-- Education -->
+{{#if (hasItems resume.education)}}
+<section class="education-section">
+  <div class="section-title">
+    <h2>Education</h2>
+    <div class="line"></div>
+  </div>
+  {{#each resume.education}}
+    <div class="education section-item {{educationUnderline ../resume.education @index institution}}">
+      <div class="row space-between">
+        <h3>{{institution}}</h3>
+        {{{linkInDiv url}}}
+      </div>
+      <div class="row space-between">
+        <div class="study subtitle">
+          {{studyType}} {{area}}
+        </div>
+        {{{dateRange this}}}
+      </div>
+      {{#if score}}<div class="score row">Overall GPA: {{score}}</div>{{/if}}
+      {{#if courses}}
+        <div class="courses row">
+          Courses: {{join courses '; '}}
+        </div>
+      {{/if}}
+    </div>
+  {{/each}}
+</section>
+{{/if}}
+
+<!-- Work -->
+{{#if (hasItems resume.work)}}
+<section class="work-section">
+  <div class="section-title">
+    <h2>Work</h2>
+    <div class="line"></div>
+  </div>
+  {{#each resume.work}}
+    <div class="work section-item {{workUnderline ../resume.work @index name}}">
+      {{#unless (eq name (lookup ../resume.work (subtract @index 1) "name"))}}
+      <div class="row space-between">
+        <h3>{{name}}</h3>
+        {{{linkInDiv url}}}
+      </div>
+      {{/unless}}
+      <div class="row space-between">
+        <div class="position subtitle">{{position}}</div>
+        {{{dateRange this}}}
+      </div>
+      <div class="summary p">{{{markdown summary}}}</div>
+      {{#if highlights}}
+        <div class="highlights row">
+          <ul>
+          {{#each highlights}}
+            <li>{{{markdown this true}}}</li>
+          {{/each}}
+          </ul>
+        </div>
+      {{/if}}
+    </div>
+  {{/each}}
+</section>
+{{/if}}
+
+<!-- Projects -->
+{{#if (hasItems resume.projects)}}
+<section class="projects-section">
+  <div class="section-title">
+    <h2>Projects</h2>
+    <div class="line"></div>
+  </div>
+  {{#each resume.projects}}
+    <div class="project section-item {{conditionalUnderline ../resume.projects}}">
+      <div class="row space-between">
+        <h3>{{name}}</h3>
+        {{{linkInDiv url}}}
+      </div>
+      <div class="row space-between">
+        {{#if roles}}
+          <div class="roles subtitle">{{join roles ', '}}</div>
+        {{/if}}
+        {{{dateRange this}}}
+      </div>
+      <div class="row _text-dim">{{{markdown description true}}}</div>
+      {{#if highlights}}
+        {{#if (eq highlights.length 1)}}
+          <div class="highlights p">{{{markdown (first highlights) true}}}</div>
+        {{else}}
+          <div class="highlights row">
+            <ul>
+            {{#each highlights}}
+              <li>{{{markdown this true}}}</li>
+            {{/each}}
+            </ul>
+          </div>
+        {{/if}}
+      {{/if}}
+      {{#if keywords}}
+        <div class="keywords row">
+          {{#each keywords}}
+            <span class="item">{{this}}</span>
+          {{/each}}
+        </div>
+      {{/if}}
+    </div>
+  {{/each}}
+</section>
+{{/if}}
+
+<!-- Skills -->
+{{#if (hasItems resume.skills)}}
+<section class="skills-section">
+  <div class="section-title">
+    <h2>Skills</h2>
+    <div class="line"></div>
+  </div>
+  <div class="two-columns">
+  {{#each resume.skills}}
+    <div class="skill section-item">
+      <h3>{{name}}</h3>
+      <div class="level row subtitle">{{level}}</div>
+      {{#if summary}}
+        <div class="summary p">{{{markdown summary}}}</div>
+      {{/if}}
+      {{#if keywords}}
+        <div class="keywords">
+          {{#each keywords}}
+            <span class="item">{{this}}</span>
+          {{/each}}
+        </div>
+      {{/if}}
+    </div>
+  {{/each}}
+  </div>
+</section>
+{{/if}}
+
+<!-- Languages -->
+{{#if (hasItems resume.languages)}}
+<section class="languages-section">
+  <div class="section-title">
+    <h2>Languages</h2>
+    <div class="line"></div>
+  </div>
+  <div class="languages-grid">
+    {{#each resume.languages}}
+      <div class="language-item">
+        <span class="language-name">{{language}}</span>
+        <span class="language-fluency">{{fluency}}</span>
+        {{#if summary}}
+          <div class="language-summary">{{{markdown summary true}}}</div>
+        {{/if}}
+      </div>
+    {{/each}}
+  </div>
+</section>
+{{/if}}
+
+<!-- Awards -->
+{{#if (hasItems resume.awards)}}
+<section class="awards-section">
+  <div class="section-title">
+    <h2>Awards</h2>
+    <div class="line"></div>
+  </div>
+  {{#each resume.awards}}
+    <div class="award section-item {{conditionalUnderline ../resume.awards}}">
+      <div class="row space-between">
+        <h3>{{title}}</h3>
+        {{{date this}}}
+      </div>
+      <div class="awarder row subtitle">{{awarder}}</div>
+      {{#if summary}}
+        <div class="summary p">{{{markdown summary}}}</div>
+      {{/if}}
+    </div>
+  {{/each}}
+</section>
+{{/if}}
+
+<!-- Certificates -->
+{{#if (hasItems resume.certificates)}}
+<section class="certificates-section">
+  <div class="section-title">
+    <h2>Certificates</h2>
+    <div class="line"></div>
+  </div>
+  {{#each resume.certificates}}
+    <div class="certificate section-item {{conditionalUnderline ../resume.certificates}}">
+      <div class="row space-between">
+        <h3>{{name}}</h3>
+        {{{date this}}}
+      </div>
+      <div class="fluency row subtitle">{{issuer}}</div>
+      {{{linkInDiv url}}}
+    </div>
+  {{/each}}
+</section>
+{{/if}}
+
+<!-- Volunteer -->
+{{#if (hasItems resume.volunteer)}}
+<section class="volunteer-section">
+  <div class="section-title">
+    <h2>Volunteer</h2>
+    <div class="line"></div>
+  </div>
+  {{#each resume.volunteer}}
+    <div class="volunteer section-item {{conditionalUnderline ../resume.volunteer}}">
+      <div class="row space-between">
+        <h3>{{organization}}</h3>
+        {{{linkInDiv url}}}
+      </div>
+      <div class="row space-between">
+        <div class="position subtitle">{{position}}</div>
+        {{{dateRange this}}}
+      </div>
+      <div class="summary p">{{{markdown summary}}}</div>
+      {{#if highlights}}
+        <div class="highlights row">
+          <ul>
+          {{#each highlights}}
+            <li>{{{markdown this true}}}</li>
+          {{/each}}
+          </ul>
+        </div>
+      {{/if}}
+    </div>
+  {{/each}}
+</section>
+{{/if}}
+
+<!-- Publications -->
+{{#if (hasItems resume.publications)}}
+<section class="publications-section">
+  <div class="section-title">
+    <h2>Publications</h2>
+    <div class="line"></div>
+  </div>
+  {{#each resume.publications}}
+    <div class="publication section-item {{conditionalUnderline ../resume.publications}}">
+      <div class="row space-between">
+        <h3>{{name}}</h3>
+        <div class="date-range">{{formatDate releaseDate}}</div>
+      </div>
+      <div class="publisher row subtitle">{{publisher}}</div>
+      {{{linkInDiv url}}}
+      {{#if summary}}
+        <div class="summary p">{{{markdown summary}}}</div>
+      {{/if}}
+    </div>
+  {{/each}}
+</section>
+{{/if}}
+
+<!-- References -->
+{{#if (hasItems resume.references)}}
+<section class="references-section">
+  <div class="section-title">
+    <h2>References</h2>
+    <div class="line"></div>
+  </div>
+  {{#each resume.references}}
+    <div class="reference section-item">
+      <div class="row space-between">
+        <h3>{{name}}</h3>
+        <div class="relationship subtitle">{{relationship}}</div>
+      </div>
+      <div class="row _text-dim">{{{markdown reference true}}}</div>
+    </div>
+  {{/each}}
+</section>
+{{/if}}
+
+<!-- Interests -->
+{{#if (hasItems resume.interests)}}
+<section class="interests-section">
+  <div class="section-title">
+    <h2>Interests</h2>
+    <div class="line"></div>
+  </div>
+  <div class="two-columns">
+  {{#each resume.interests}}
+    <div class="interest section-item">
+      <h3>{{name}}</h3>
+      {{#if keywords}}
+        <div class="keywords">
+          {{#each keywords}}
+            <span class="item">{{this}}</span>
+          {{/each}}
+        </div>
+      {{/if}}
+    </div>
+  {{/each}}
+  </div>
+</section>
+{{/if}}
+
+{{#if resume.meta}}
+<footer>
+  {{#if resume.meta.version}}
+    <div class="version">Version: {{resume.meta.version}}</div>
+  {{/if}}
+  {{#if resume.meta.lastModified}}
+    <div class="version">Last modified: {{substring resume.meta.lastModified 0 10}}</div>
+  {{/if}}
+</footer>
+{{/if}}
+
+</div>
+</body>
+</html>

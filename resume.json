@@ -1,0 +1,342 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Gottfried Wilhelm Leibniz",
+    "label": "Universal Genius & Last Renaissance Man",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Gottfried_Wilhelm_Leibniz%2C_Bernhard_Christoph_Francke.jpg",
+    "email": "g.leibniz@hanover.court",
+    "phone": "+49-511-CALCULUS",
+    "url": "https://leibniz.org",
+    "summary": "Polymath extraordinaire with expertise in mathematics, philosophy, theology, law, and diplomacy. Inventor of calculus (yes, before Newton published), binary system visionary, and creator of the concept of possible worlds. Passionate about unifying all human knowledge and settling disputes through rational calculation.",
+    "location": {
+      "address": "Royal Court of Hanover",
+      "postalCode": "30159",
+      "city": "Hanover",
+      "countryCode": "DE",
+      "region": "Lower Saxony"
+    },
+    "profiles": [
+      {
+        "network": "Royal Society of London",
+        "username": "leibniz_gw",
+        "url": "https://royalsociety.org/people/gottfried-leibniz/"
+      },
+      {
+        "network": "Berlin Academy of Sciences",
+        "username": "founder_president",
+        "url": "https://bbaw.de"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "House of Hanover",
+      "position": "Court Mathematician & Librarian",
+      "url": "https://hanover.court",
+      "startDate": "1676-01-01",
+      "endDate": "1716-11-14",
+      "summary": "Primary intellectual advisor to the Dukes of Brunswick-Lüneburg and later the Elector of Hanover.",
+      "highlights": [
+        "Maintained the ducal library with obsessive precision",
+        "Wrote family genealogy tracing Hanover lineage to Italian nobility",
+        "Provided mathematical consultation on mining operations",
+        "Diplomatically advised on succession matters (helped secure British throne for Hanover)"
+      ]
+    },
+    {
+      "name": "University of Altdorf",
+      "position": "Doctoral Candidate & Rising Star",
+      "url": "https://altdorf.university",
+      "startDate": "1666-01-01",
+      "endDate": "1667-12-31",
+      "summary": "Completed doctorate in law at age 20, declined professorship offer because the world was too big to settle down.",
+      "highlights": [
+        "Youngest doctoral graduate in university history",
+        "Dissertation on legal reasoning impressed faculty so much they offered immediate tenure",
+        "Politely declined to pursue broader intellectual adventures"
+      ]
+    },
+    {
+      "name": "Baron von Boineburg's Service",
+      "position": "Legal Advisor & Intellectual Companion",
+      "startDate": "1667-01-01",
+      "endDate": "1672-12-31",
+      "summary": "Served influential German statesman while developing early philosophical and mathematical ideas.",
+      "highlights": [
+        "Drafted legal documents by day, revolutionized mathematics by night",
+        "Proposed unification of Christian churches (ambitious side project)",
+        "Designed early calculating machine to automate 'unworthy' arithmetic tasks"
+      ]
+    },
+    {
+      "name": "French Court (Unofficial)",
+      "position": "Diplomatic Mathematician",
+      "startDate": "1672-01-01",
+      "endDate": "1676-12-31",
+      "summary": "Attempted to convince Louis XIV to conquer Egypt instead of Europe (unsuccessful but educational).",
+      "highlights": [
+        "Developed calculus while trying to distract French from German territories",
+        "Met with leading mathematicians and philosophers of Paris",
+        "Learned that even brilliant mathematical arguments can't redirect royal ambitions"
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Berlin Academy of Sciences",
+      "position": "Founding President",
+      "url": "https://bbaw.de",
+      "startDate": "1700-01-01",
+      "endDate": "1716-11-14",
+      "summary": "Founded and led scientific academy to advance human knowledge across all disciplines.",
+      "highlights": [
+        "Convinced Elector Frederick III that Prussia needed its own scientific academy",
+        "Established academy motto: 'Theory and Practice'",
+        "Promoted international scientific collaboration despite ongoing European wars"
+      ]
+    },
+    {
+      "organization": "Universal Reconciliation Project",
+      "position": "Chief Optimist",
+      "startDate": "1680-01-01",
+      "endDate": "1716-11-14",
+      "summary": "Lifelong effort to reunite Christian churches through rational dialogue.",
+      "highlights": [
+        "Corresponded with Catholic, Lutheran, and Reformed theologians",
+        "Argued that doctrinal differences were mostly semantic misunderstandings",
+        "Maintained hope despite consistent evidence to the contrary"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Leipzig",
+      "url": "https://uni-leipzig.de",
+      "area": "Philosophy and Law",
+      "studyType": "Bachelor and Master",
+      "startDate": "1661-01-01",
+      "endDate": "1666-12-31",
+      "score": "Summa Cum Laude (invented new categories of excellence)",
+      "courses": [
+        "Aristotelian Logic (later revolutionized)",
+        "Roman Law (found it insufficiently mathematical)",
+        "Scholastic Philosophy (appreciated the systematic approach)"
+      ]
+    },
+    {
+      "institution": "University of Altdorf",
+      "url": "https://altdorf.university",
+      "area": "Law",
+      "studyType": "Doctorate",
+      "startDate": "1666-01-01",
+      "endDate": "1667-12-31",
+      "score": "Distinction (faculty begged him to stay)",
+      "courses": [
+        "Jurisprudence",
+        "Legal Philosophy",
+        "The Art of Making Everything Mathematical"
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "title": "Fellow of the Royal Society of London",
+      "date": "1673-04-19",
+      "awarder": "Royal Society of London",
+      "summary": "Elected for mathematical innovations, despite ongoing calculus priority dispute with Newton."
+    },
+    {
+      "title": "Foreign Member of the French Academy of Sciences",
+      "date": "1700-02-14",
+      "awarder": "Académie des Sciences",
+      "summary": "International recognition for contributions to mathematics and natural philosophy."
+    },
+    {
+      "title": "Inventor of Calculus (Co-Title, Disputed)",
+      "date": "1684-10-01",
+      "awarder": "Mathematical Community",
+      "summary": "First to publish calculus notation still used today, though Newton claims earlier invention."
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Master of All Trades",
+      "date": "1716-11-14",
+      "issuer": "Posterity",
+      "url": "https://history.com/leibniz"
+    }
+  ],
+  "publications": [
+    {
+      "name": "Discourse on Metaphysics",
+      "publisher": "Self (circulated in manuscripts)",
+      "releaseDate": "1686-01-01",
+      "url": "https://philosophy.com/leibniz/discourse",
+      "summary": "Outlined theory of individual substances and best of all possible worlds."
+    },
+    {
+      "name": "New Essays on Human Understanding",
+      "publisher": "Posthumous Publication",
+      "releaseDate": "1765-01-01",
+      "url": "https://philosophy.com/leibniz/new-essays",
+      "summary": "Point-by-point response to Locke's Essay, defending innate ideas and rationalism."
+    },
+    {
+      "name": "Theodicy",
+      "publisher": "Amsterdam",
+      "releaseDate": "1710-01-01",
+      "url": "https://philosophy.com/leibniz/theodicy",
+      "summary": "Defended God's justice in permitting evil; coined 'best of all possible worlds'."
+    },
+    {
+      "name": "Monadology",
+      "publisher": "Posthumous Publication",
+      "releaseDate": "1720-01-01",
+      "url": "https://philosophy.com/leibniz/monadology",
+      "summary": "90 propositions explaining reality as composed of simple, indivisible monads."
+    }
+  ],
+  "skills": [
+    {
+      "name": "Mathematics",
+      "level": "Revolutionary",
+      "keywords": [
+        "Calculus",
+        "Binary System",
+        "Infinitesimal Analysis",
+        "Topology",
+        "Mathematical Logic"
+      ]
+    },
+    {
+      "name": "Philosophy",
+      "level": "Systematic Genius",
+      "keywords": [
+        "Metaphysics",
+        "Logic",
+        "Epistemology",
+        "Theodicy",
+        "Possible Worlds Theory"
+      ]
+    },
+    {
+      "name": "Languages",
+      "level": "Polyglot",
+      "keywords": [
+        "Latin",
+        "German",
+        "French",
+        "Italian",
+        "Ancient Greek",
+        "Hebrew"
+      ]
+    },
+    {
+      "name": "Diplomacy",
+      "level": "Idealistic",
+      "keywords": [
+        "International Relations",
+        "Religious Reconciliation",
+        "Court Politics",
+        "Genealogical Research"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Latin",
+      "fluency": "Native (academic)"
+    },
+    {
+      "language": "German",
+      "fluency": "Native"
+    },
+    {
+      "language": "French",
+      "fluency": "Fluent (court language)"
+    },
+    {
+      "language": "Italian",
+      "fluency": "Fluent"
+    },
+    {
+      "language": "Mathematical Notation",
+      "fluency": "Inventor"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Universal Characteristic",
+      "keywords": [
+        "Universal Language",
+        "Logical Calculus",
+        "Automated Reasoning",
+        "Symbolic Logic"
+      ]
+    },
+    {
+      "name": "Mechanical Engineering",
+      "keywords": [
+        "Calculating Machines",
+        "Mining Technology",
+        "Windmill Design",
+        "Submarine Concepts"
+      ]
+    },
+    {
+      "name": "Chinese Philosophy",
+      "keywords": [
+        "I Ching",
+        "Binary Interpretations",
+        "East-West Synthesis",
+        "Jesuit Correspondence"
+      ]
+    },
+    {
+      "name": "Collecting Thoughts",
+      "keywords": [
+        "15,000 Letters",
+        "40,000 Documents",
+        "Systematic Filing",
+        "Intellectual Hoarding"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "name": "Sir Isaac Newton",
+      "reference": "A man of extraordinary genius, though we disagree on priority matters and the nature of space and time. His mathematical abilities are... adequate."
+    },
+    {
+      "name": "Sophie Charlotte of Hanover",
+      "reference": "My most brilliant philosophical correspondent and pupil. Made the court infinitely more intellectually stimulating."
+    },
+    {
+      "name": "John Locke",
+      "reference": "We fundamentally disagree on the nature of human understanding, but his commitment to rigorous analysis is admirable."
+    }
+  ],
+  "projects": [
+    {
+      "name": "Binary Number System",
+      "description": "Developed complete binary arithmetic system, connecting it to Chinese I Ching philosophy",
+      "highlights": [
+        "Laid foundation for modern computer science",
+        "Saw theological significance in creation from nothing (0) and something (1)",
+        "Impressed Chinese Emperor with binary interpretation of ancient texts"
+      ],
+      "keywords": [
+        "Binary",
+        "Computing",
+        "Philosophy",
+        "Cross-cultural Exchange"
+      ],
+      "startDate": "1679-01-01",
+      "endDate": "1716-11-14",
+      "url": "https://leibniz.org/binary",
+      "roles": ["Inventor", "Philosopher", "Cultural Bridge-builder"],
+      "entity": "Independent Research",
+      "type": "Mathematical Innovation"
+    }
+  ]
+}
