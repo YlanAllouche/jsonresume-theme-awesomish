@@ -47,36 +47,6 @@
   </div>
 </section>
 
-<!-- Education -->
-{{#if (hasItems resume.education)}}
-<section class="education-section">
-  <div class="section-title">
-    <h2>Education</h2>
-    <div class="line"></div>
-  </div>
-  {{#each resume.education}}
-    <div class="education section-item {{educationUnderline ../resume.education @index institution}}">
-      <div class="row space-between">
-        <h3>{{institution}}</h3>
-        {{{linkInDiv url}}}
-      </div>
-      <div class="row space-between">
-        <div class="study subtitle">
-          {{studyType}} {{area}}
-        </div>
-        {{{dateRange this}}}
-      </div>
-      {{#if score}}<div class="score row">Overall GPA: {{score}}</div>{{/if}}
-      {{#if courses}}
-        <div class="courses row">
-          Courses: {{join courses '; '}}
-        </div>
-      {{/if}}
-    </div>
-  {{/each}}
-</section>
-{{/if}}
-
 <!-- Work -->
 {{#if (hasItems resume.work)}}
 <section class="work-section">
@@ -121,8 +91,11 @@
   {{#each resume.projects}}
     <div class="project section-item {{conditionalUnderline ../resume.projects}}">
       <div class="row space-between">
-        <h3>{{name}}</h3>
-        {{{linkInDiv url}}}
+        {{#if url}}
+          <h3><a href="{{url}}" target="_blank">{{name}}</a></h3>
+        {{else}}
+          <h3>{{name}}</h3>
+        {{/if}}
       </div>
       <div class="row space-between">
         {{#if roles}}
@@ -149,6 +122,36 @@
           {{#each keywords}}
             <span class="item">{{this}}</span>
           {{/each}}
+        </div>
+      {{/if}}
+    </div>
+  {{/each}}
+</section>
+{{/if}}
+
+<!-- Education -->
+{{#if (hasItems resume.education)}}
+<section class="education-section">
+  <div class="section-title">
+    <h2>Education</h2>
+    <div class="line"></div>
+  </div>
+  {{#each resume.education}}
+    <div class="education section-item {{educationUnderline ../resume.education @index institution}}">
+      <div class="row space-between">
+        <h3>{{institution}}</h3>
+        {{{linkInDiv url}}}
+      </div>
+      <div class="row space-between">
+        <div class="study subtitle">
+          {{studyType}} {{area}}
+        </div>
+        {{{dateRange this}}}
+      </div>
+      {{#if score}}<div class="score row">Overall GPA: {{score}}</div>{{/if}}
+      {{#if courses}}
+        <div class="courses row">
+          Courses: {{join courses '; '}}
         </div>
       {{/if}}
     </div>
