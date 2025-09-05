@@ -22,6 +22,12 @@
       <a href="{{resume.basics.url}}" target="_blank">{{noSchemaURL resume.basics.url}}</a>
     </div>
   {{/if}}
+  {{#if resume.basics.profile.portfolio}}
+    <div class="url row">
+      {{{getIconSVG 'mdi:link-variant'}}}
+      <a href="{{resume.basics.profile.portfolio.username}}" target="_blank">{{noSchemaURL resume.basics.profile.portfolio.url}}</a>
+    </div>
+  {{/if}}
   {{#if resume.basics.summary}}
     <div class="summary p">{{{markdown resume.basics.summary}}}</div>
   {{/if}}
