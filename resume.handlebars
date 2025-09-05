@@ -22,12 +22,12 @@
       <a href="{{resume.basics.url}}" target="_blank">{{noSchemaURL resume.basics.url}}</a>
     </div>
   {{/if}}
-  {{#if resume.basics.profile.portfolio}}
+      {{#each items}}
     <div class="url row">
       {{{getIconSVG 'mdi:link-variant'}}}
-      <a href="{{resume.basics.profile.portfolio.username}}" target="_blank">{{noSchemaURL resume.basics.profile.portfolio.url}}</a>
+      <a href="{{this.username}}" target="_blank">{{noSchemaURL this.url}}</a>
     </div>
-  {{/if}}
+      {{/each}}
   {{#if resume.basics.summary}}
     <div class="summary p">{{{markdown resume.basics.summary}}}</div>
   {{/if}}
