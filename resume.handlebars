@@ -23,12 +23,14 @@
     </div>
   {{/if}}
   {{#if resume.basics.profiles}}
-    {{#each resume.basics.profiles}}
-      <div class="url row">
-        {{{getIconSVG 'mdi:link-variant'}}}
-        <a href="{{url}}" target="_blank">{{network}}: {{username}}</a>
-      </div>
-    {{/each}}
+    <div class="profiles-grid">
+      {{#each resume.basics.profiles}}
+        <div class="url row">
+          {{{getIconSVG 'mdi:link-variant'}}}
+          <a href="{{url}}" target="_blank">{{network}}: {{username}}</a>
+        </div>
+      {{/each}}
+    </div>
   {{/if}}
   {{#if resume.basics.summary}}
     <div class="summary p">{{{markdown resume.basics.summary}}}</div>
