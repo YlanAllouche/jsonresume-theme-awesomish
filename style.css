@@ -24,6 +24,7 @@
 
 .date-range {
   font-style: italic;
+  color: var(--color-primary);
 }
 
 a {
@@ -97,6 +98,15 @@ section p {
 
 section .subtitle {
   font-size: 14px;
+}
+
+section .position.subtitle {
+  color: #777;
+  font-weight: bold;
+}
+
+.work-section .summary.p {
+  font-style: italic;
 }
 
 @media screen and (max-width: 500px) {
@@ -215,9 +225,29 @@ section ._text-dim {
   }
 }
 
-.work-section .section-item {
-  break-inside: auto;
+/* PDF Page Break Rules */
+.section-title {
+  page-break-after: avoid;
+  break-after: avoid;
+}
+
+.section-item {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.section-item .highlights {
   page-break-inside: auto;
+  break-inside: auto;
+}
+
+.work-section .section-item,
+.education-section .section-item,
+.projects-section .section-item {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  orphans: 2;
+  widows: 2;
 }
 
 @media screen and (max-width: 500px) {

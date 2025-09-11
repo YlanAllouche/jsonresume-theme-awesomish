@@ -26,7 +26,7 @@
     <div class="profiles-grid">
       {{#each resume.basics.profiles}}
         <div class="url row">
-          {{{getIconSVG 'mdi:link-variant'}}}
+          {{{getIconSVG (getProfileIcon url)}}}
           <a href="{{url}}" target="_blank">{{username}}</a>
         </div>
       {{/each}}

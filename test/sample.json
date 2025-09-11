@@ -391,6 +391,22 @@
       "url": "https://chat-app.sarahjohnson.dev",
       "keywords": ["Socket.io", "WebRTC", "React", "PWA"]
     }
+  ],
+  "someotherfield": [
+    {
+      "some_other_specific_field": "DevTools Dashboard",
+      "description": "Open-source developer productivity dashboard that aggregates metrics from multiple development tools and platforms.",
+      "highlights": [
+        "Built with React, Node.js, and GraphQL",
+        "Integrated with GitHub, Jira, and Slack APIs",
+        "Downloaded 10K+ times on npm",
+        "Featured in JavaScript Weekly newsletter",
+        "Built with React, Node.js, and GraphQL",
+        "Integrated with GitHub, Jira, and Slack APIs",
+        "Downloaded 10K+ times on npm",
+        "Featured in JavaScript Weekly newsletter"
+      ]
+    },
+    { "keywords": ["React", "Node.js", "GraphQL", "Open Source"] }
   ]
 }
-
