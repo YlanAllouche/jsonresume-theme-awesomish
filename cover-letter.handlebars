@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{#if sender.name}}{{sender.name}} - {{/if}}Cover Letter</title>
+  <meta name="description" content="Cover Letter{{#if sender.name}} from {{sender.name}}{{/if}}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>{{{css}}}</style>
+</head>
+<body>
+<div class="cv-container">
+
+<!-- Sender Header -->
+{{#if sender}}
+<section class="basics-section">
+  {{#if sender.name}}
+    <h1>{{sender.name}}</h1>
+  {{else}}
+    <h1>Cover Letter</h1>
+  {{/if}}
+  {{#if sender.url}}
+    <div class="url row">
+      {{{getIconSVG 'mdi:link-variant'}}}
+      <a href="{{sender.url}}" target="_blank">{{noSchemaURL sender.url}}</a>
+    </div>
+  {{/if}}
+  {{#if (or sender.email sender.phone sender.location)}}
+    <div class="contact row">
+      {{#if sender.email}}
+        <div class="item">
+          {{{getIconSVG 'mdi:email'}}}
+          <span><a href="mailto:{{sender.email}}">{{sender.email}}</a></span>
+        </div>
+      {{/if}}
+      {{#if sender.phone}}
+        <div class="item">
+          {{{getIconSVG 'mdi:phone'}}}
+          <span>{{sender.phone}}</span>
+        </div>
+      {{/if}}
+      {{#if sender.location}}
+        <div class="item">
+          {{{getIconSVG 'mdi:location'}}}
+          <span>{{formatLocation sender.location}}</span>
+        </div>
+      {{/if}}
+    </div>
+  {{/if}}
+</section>
+{{else}}
+<section class="basics-section">
+  <h1>Cover Letter</h1>
+</section>
+{{/if}}
+
+<!-- Date -->
+{{#if date}}
+<section class="date-section">
+  <div class="date-range" style="margin-top: 2em; text-align: right;">{{formatDate date}}</div>
+</section>
+{{/if}}
+
+<!-- Recipient -->
+{{#if (or recipient.name recipient.title recipient.company recipient.address)}}
+<section class="recipient-section" style="margin-top: 2em;">
+  {{#if recipient.name}}
+    <div><strong>{{recipient.name}}</strong></div>
+  {{/if}}
+  {{#if recipient.title}}
+    <div>{{recipient.title}}</div>
+  {{/if}}
+  {{#if recipient.company}}
+    <div>{{recipient.company}}</div>
+  {{/if}}
+  {{#if recipient.address}}
+    <div style="margin-top: 0.5em;">
+      {{#if recipient.address.street}}
+        <div>{{recipient.address.street}}</div>
+      {{/if}}
+      {{#if (or recipient.address.city recipient.address.postalCode recipient.address.region recipient.address.countryCode)}}
+        <div>
+          {{#if recipient.address.city}}{{recipient.address.city}}{{#if recipient.address.postalCode}}, {{recipient.address.postalCode}}{{/if}}{{/if}}
+          {{#if recipient.address.region}}{{#if recipient.address.city}}, {{/if}}{{recipient.address.region}}{{/if}}
+          {{#if recipient.address.countryCode}} {{recipient.address.countryCode}}{{/if}}
+        </div>
+      {{/if}}
+    </div>
+  {{/if}}
+</section>
+{{/if}}
+
+<!-- Subject -->
+{{#if subject}}
+<section class="subject-section" style="margin-top: 2em;">
+  <div style="font-weight: 600; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--color-primary);">
+    Re: {{subject}}
+  </div>
+</section>
+{{/if}}
+
+<!-- Content -->
+{{#if (or content.opening content.body content.closing)}}
+<section class="content-section" style="margin-top: 2em;">
+  {{#if content.opening}}
+    <div class="p">{{content.opening}}</div>
+  {{/if}}
+  
+  {{#if content.body}}
+    {{#each content.body}}
+      <div class="p" style="margin-top: 1.2em; line-height: 1.5;">{{{markdown this}}}</div>
+    {{/each}}
+  {{/if}}
+  
+  {{#if content.closing}}
+    <div class="p" style="margin-top: 1.2em;">{{content.closing}}</div>
+  {{/if}}
+</section>
+{{/if}}
+
+<!-- Signature -->
+<section class="signature-section" style="margin-top: 2em;">
+  <div class="p">
+    Sincerely,<br>
+    {{#if sender.name}}
+      <span style="margin-top: 1em; display: inline-block; font-weight: 600;">{{sender.name}}</span>
+    {{else}}
+      <span style="margin-top: 1em; display: inline-block; font-weight: 600;">[Your Name]</span>
+    {{/if}}
+  </div>
+</section>
+
+</div>
+</body>
+</html>

@@ -11,7 +11,6 @@ This project doubles as a cover (and even generic) letter generator, going a bit
 - **Condensed Design**: Optimized sections like languages and skills for better space usage
 - **Complete `jsonresume` schema support**: All standard resume sections supported
 
-
 ## Installation & Usage
 
 ```bash
@@ -46,7 +45,7 @@ This package includes a cover letter generator that maintains theming continuity
 
 ## Usage
 
-### NPM Scripts (if using this theme directly)
+### NPM Scripts (in-project)
 ```bash
 # Generate HTML with default sample
 npm run cover-letter
@@ -68,9 +67,6 @@ node build-cover-letter.js [input.json]
 
 # Generate PDF at specified path  
 node build-cover-letter.js [input.json] --pdf output.pdf
-
-# Show help
-node build-cover-letter.js --help
 ```
 
 #### Examples
@@ -96,10 +92,9 @@ node build-cover-letter.js application.json --pdf ./applications/google-2024.pdf
 
 ### Using in Another Project
 
-#### Option 1: Install as Binary (Recommended)
-If you publish this theme to npm, install it globally:
 ```bash
-npm install -g jsonresume-theme-awesomish
+# npm install -g jsonresume-theme-awesomish
+pnpm add jsonresume-theme-awesomish
 build-cover-letter --pdf my-cover-letter.json
 ```
 
