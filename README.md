@@ -43,6 +43,8 @@ You can customize the theme by:
 
 This package includes a cover letter generator that maintains theming continuity with the jsonresume resume.
 
+> Pupetter has not been added as dependecy to this project since it's not needed for a `jsonresume` theme but you must add it manually if you want to be able to generate cover letters as well.
+
 ## Usage
 
 ### NPM Scripts (in-project)
