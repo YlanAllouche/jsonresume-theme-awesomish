@@ -5,6 +5,14 @@ Look at `./output` folder for examples
 
 This project doubles as a cover (and even generic) letter generator, going a bit beyond the `jsonresume` schema
 
+## Recent Updates
+
+- **Standalone CLI**: New `awesomish` command-line tool for generating resumes and cover letters from JSON
+- **French Localization**: Full French language support added
+- **Optimized Layout**: Improved space usage with skills prioritized over work experience
+- **No External Dependencies**: Removed `resume-cli` dependency for lighter installation
+- **Cover Letter Generator**: Integrated cover letter generation with consistent theming
+
 ## Features
 
 - **Smart Grouping**: Conditional underlines for multiple positions at the same company
@@ -13,14 +21,34 @@ This project doubles as a cover (and even generic) letter generator, going a bit
 
 ## Installation & Usage
 
-```bash
+### As a JSON Resume Theme
 
+```bash
 # in your CV project
 npm install https://github.com/ylanallouche/jsonresume-theme-awesomish
 resume export --theme awesomeish output.html
 resume export --theme awesomeish output.pdf
-
 ```
+
+### As a Standalone CLI Tool
+
+For the `awesomish` CLI command to work globally, you must clone and install from the local directory:
+
+```bash
+# Clone the repository
+git clone https://github.com/YlanAllouche/jsonresume-theme-awesomeish
+cd jsonresume-theme-awesomeish
+
+# Install globally from local directory
+npm install -g .
+
+# Now you can use the awesomish command anywhere
+awesomish ./resume.json
+awesomish ./resume.json --letter
+awesomish ./resume.json --a4
+```
+
+⚠️ **Note**: Installing via `npm install -g github:YlanAllouche/jsonresume-theme-awesomeish` does not work due to npm limitations with symlink handling during GitHub clones. Use the local installation method above.
 
 ### Customization
 
@@ -92,12 +120,18 @@ node build-cover-letter.js my-letter.json --pdf /path/to/cover-letter.pdf
 node build-cover-letter.js application.json --pdf ./applications/google-2024.pdf
 ```
 
-### Using in Another Project
+### Using the CLI in Another Project
+
+To use the `build-cover-letter` and `awesomish` commands globally, you must install from a local clone:
 
 ```bash
-# npm install -g jsonresume-theme-awesomish
-pnpm add jsonresume-theme-awesomish
-build-cover-letter --pdf my-cover-letter.json
+git clone https://github.com/YlanAllouche/jsonresume-theme-awesomeish
+cd jsonresume-theme-awesomeish
+npm install -g .
+
+# Then use from anywhere
+build-cover-letter my-cover-letter.json --pdf output.pdf
+awesomish resume.json
 ```
 
 
