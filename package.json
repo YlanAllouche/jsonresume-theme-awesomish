@@ -23,7 +23,7 @@
     "cover-letter:test": "node build-cover-letter.js test/sample-cover-letter.json --pdf letter.pdf"
   },
   "bin": {
-    "build-cover-letter": "./build-cover-letter.js"
+    "awesomish": "./cli/index.js"
   },
   "dependencies": {
     "handlebars": "^4.7.8",
