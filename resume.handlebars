@@ -12,10 +12,12 @@
 
 <!-- Basics -->
 <section class="basics-section">
-  <h1>{{resume.basics.name}}</h1>
-  {{#if resume.basics.label}}
-    <div class="label row subtitle">{{resume.basics.label}}</div>
-  {{/if}}
+  <div class="name-label-row">
+    <h1>{{resume.basics.name}}</h1>
+    {{#if resume.basics.label}}
+      <div class="label subtitle">{{resume.basics.label}}</div>
+    {{/if}}
+  </div>
   {{#if resume.basics.url}}
     <div class="url row">
       {{{getIconSVG 'mdi:link-variant'}}}
@@ -56,6 +58,26 @@
     {{/if}}
   </div>
 </section>
+
+<!-- Skills -->
+{{#if (hasItems resume.skills)}}
+<section class="skills-section">
+  <div class="section-title">
+    <h2>Skills</h2>
+    <div class="line"></div>
+  </div>
+  {{#each resume.skills}}
+    <div class="skill section-item">
+      <div class="skill-inline">
+        <h3>{{name}}:</h3>
+        {{#if keywords}}
+          <span class="keywords-inline">{{join keywords ', '}}</span>
+        {{/if}}
+      </div>
+    </div>
+  {{/each}}
+</section>
+{{/if}}
 
 <!-- Work -->
 {{#if (hasItems resume.work)}}
@@ -106,13 +128,13 @@
         {{else}}
           <h3>{{name}}</h3>
         {{/if}}
-      </div>
-      <div class="row space-between">
-        {{#if roles}}
-          <div class="roles subtitle">{{join roles ', '}}</div>
-        {{/if}}
         {{{dateRange this}}}
       </div>
+      {{#if roles}}
+      <div class="row space-between">
+        <div class="roles subtitle">{{join roles ', '}}</div>
+      </div>
+      {{/if}}
       <div class="row _text-dim">{{{markdown description true}}}</div>
       {{#if highlights}}
         {{#if (eq highlights.length 1)}}
@@ -169,33 +191,7 @@
 </section>
 {{/if}}
 
-<!-- Skills -->
-{{#if (hasItems resume.skills)}}
-<section class="skills-section">
-  <div class="section-title">
-    <h2>Skills</h2>
-    <div class="line"></div>
-  </div>
-  <div class="two-columns">
-  {{#each resume.skills}}
-    <div class="skill section-item">
-      <h3>{{name}}</h3>
-      <div class="level row subtitle">{{level}}</div>
-      {{#if summary}}
-        <div class="summary p">{{{markdown summary}}}</div>
-      {{/if}}
-      {{#if keywords}}
-        <div class="keywords">
-          {{#each keywords}}
-            <span class="item">{{this}}</span>
-          {{/each}}
-        </div>
-      {{/if}}
-    </div>
-  {{/each}}
-  </div>
-</section>
-{{/if}}
+
 
 <!-- Languages -->
 {{#if (hasItems resume.languages)}}

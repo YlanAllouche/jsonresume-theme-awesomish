@@ -5,6 +5,8 @@
 .cv-container {
   font-size: 14px;
   font-family: system-ui, sans-serif;
+  padding-top: 0;
+  margin-top: 0;
 }
 
 .cv-container footer {
@@ -23,12 +25,12 @@
 }
 
 .date-range {
-  font-style: italic;
+  font-style: normal;
   color: var(--color-primary);
 }
 
 a {
-  color: #777;
+  color: #000;
   text-decoration: none;
 }
 
@@ -43,7 +45,8 @@ a:hover {
 }
 
 section .section-title {
-  margin-top: 2em;
+  margin-top: 1.2em;
+  margin-bottom: 0.4em;
   display: flex;
 }
 
@@ -62,22 +65,23 @@ section .section-title .line {
 }
 
 section .section-item {
-  margin-top: 1.2em;
+  margin-top: 0.8em;
 }
 
 section .section-item h3 {
   font-size: 16px;
   line-height: 1.3;
   margin: 0;
+  color: #000;
 }
 
 section .section-item ul {
-  margin: 0.5em 0;
+  margin: 0.3em 0;
   padding-left: 16px;
 }
 
 section .section-item ul li {
-  margin-bottom: 0.2em;
+  margin-bottom: 0.1em;
 }
 
 section svg {
@@ -87,13 +91,13 @@ section svg {
 }
 
 section .row {
-  margin: 0.2em 0;
+  margin: 0.1em 0;
 }
 
 section .p,
 section p {
   line-height: 1.3;
-  margin: 0.5em 0;
+  margin: 0.3em 0;
 }
 
 section .subtitle {
@@ -101,7 +105,7 @@ section .subtitle {
 }
 
 section .position.subtitle {
-  color: #777;
+  color: #000;
   font-weight: bold;
 }
 
@@ -122,14 +126,14 @@ section .space-between {
 }
 
 section .space-between a {
-  color: #777;
+  color: #000;
 }
 
 section .keywords {
   display: flex;
   flex-wrap: wrap;
   gap: 6px 8px;
-  margin-top: 0.8em;
+  margin-top: 0.5em;
 }
 
 section .keywords .item {
@@ -164,27 +168,49 @@ section ._ul {
 }
 
 section ._text-dim {
-  color: #777;
+  color: #000;
 }
 
 @media print {
   section .section-title {
-    margin-top: 2.7em;
+    margin-top: 1.5em;
   }
 
   section .section-item {
-    margin-top: 1.8em;
+    margin-top: 1em;
   }
+}
+
+.basics-section {
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 0.5em;
 }
 
 .basics-section h1 {
   font-size: 32px;
   font-weight: 600;
-  margin: 0.1em 0 0.2em 0;
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+.name-label-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1em;
+  margin-bottom: 0.3em;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.name-label-row .label {
+  margin: 0;
+  padding: 0;
 }
 
 .basics-section .contact {
-  color: #777;
+  color: #000;
   display: flex;
   flex-wrap: wrap;
   gap: 0.4em 1em;
@@ -197,7 +223,7 @@ section ._text-dim {
 }
 
 .basics-section .contact .item a {
-  color: #777;
+  color: #000;
 }
 
 .basics-section .profiles-grid {
@@ -281,12 +307,12 @@ section ._text-dim {
 
 .languages-section .language-fluency {
   font-size: 14px;
-  color: #777;
+  color: #000;
 }
 
 .languages-section .language-summary {
   font-size: 14px;
-  color: #777;
+  color: #000;
   margin-top: 0.3em;
   line-height: 1.3;
 }
@@ -296,6 +322,40 @@ section ._text-dim {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 0.6em 1em;
   }
+}
+
+/* Skills section inline formatting */
+.skill-inline {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+}
+
+.skill-inline h3 {
+  margin: 0;
+  font-size: 14px;
+  color: #000;
+  font-weight: 600;
+  display: inline;
+}
+
+.keywords-inline {
+  display: inline;
+  font-size: 14px;
+  color: #000;
+}
+
+.skill.section-item {
+  margin-top: 0.4em;
+}
+
+/* Projects section - make names black */
+.projects-section h3 {
+  color: #000;
+}
+
+.projects-section h3 a {
+  color: #000;
 }
 
 /* Conditional underlines for subsections with multiple entries */

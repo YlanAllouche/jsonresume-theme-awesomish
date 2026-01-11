@@ -45,17 +45,17 @@ async function generatePDF(html, pdfPath) {
     const page = await browser.newPage();
     await page.setContent(html, { waitUntil: "networkidle0" });
 
-    await page.pdf({
-      path: pdfPath,
-      format: "A4",
-      printBackground: true,
-      margin: {
-        top: "0.5in",
-        right: "0.5in",
-        bottom: "0.5in",
-        left: "0.5in",
-      },
-    });
+     await page.pdf({
+       path: pdfPath,
+       format: "A4",
+       printBackground: true,
+       margin: {
+         top: "0.2in",
+         right: "0.5in",
+         bottom: "0.5in",
+         left: "0.5in",
+       },
+     });
 
     await browser.close();
     console.log(`✅ PDF: ${pdfPath}`);
