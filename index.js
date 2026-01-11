@@ -52,12 +52,12 @@ function noSchemaURL(url) {
 function formatLocation(loc) {
   if (!loc) return "";
   const parts = [];
-  
+
   if (loc.city) parts.push(loc.city);
   if (loc.postalCode) parts.push(loc.postalCode);
   if (loc.region) parts.push(loc.region);
   if (loc.countryCode) parts.push(loc.countryCode);
-  
+
   const cityToCountry = parts.join(", ");
   if (!loc.address) return cityToCountry;
   return `${loc.address}. ${cityToCountry}`;
@@ -85,14 +85,10 @@ function formatDate(dateStr, format = "MMM YYYY") {
   const date = new Date(dateStr);
   if (isNaN(date.getTime())) return dateStr;
 
-  if (format === "MMM YYYY") {
-    return date.toLocaleDateString("en-US", {
-      month: "short",
-      year: "numeric",
-    });
-  }
-
-  return dateStr;
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    year: "numeric",
+  });
 }
 
 Handlebars.registerHelper("hasItems", hasItems);
@@ -155,7 +151,7 @@ Handlebars.registerHelper("getIconSVG", function (iconName) {
 });
 
 Handlebars.registerHelper("getProfileIcon", function (url) {
-  if (url && url.includes('github.com')) {
+  if (url && url.includes("github.com")) {
     return "mdi:github";
   }
   return "mdi:link-variant";
@@ -243,4 +239,14 @@ function render(resume) {
 
 module.exports = {
   render,
+  pdfRenderOptions: {
+    mediaType: "screen",
+  },
+  pdfViewport: null,
+  pdfMargin: {
+    top: "0.2in",
+    right: "0.5in",
+    bottom: "0.5in",
+    left: "0.5in",
+  },
 };
