@@ -2,6 +2,7 @@ const fs = require("fs");
 const Handlebars = require("handlebars");
 const { marked } = require("marked");
 const { minify } = require("html-minifier");
+const { t } = require("./i18n");
 
 const renderer = {
   heading(text) {
@@ -67,8 +68,12 @@ function hasItems(arr) {
   return arr && arr.length > 0;
 }
 
-function formatDate(dateStr, format = "MMM YYYY") {
+function formatDate(dateStr, language = "en") {
   if (!dateStr) return "";
+
+  if (language !== "en" && language !== "fr") {
+    language = "en";
+  }
 
   if (/^\d{4}$/.test(dateStr)) {
     return dateStr;
@@ -76,7 +81,7 @@ function formatDate(dateStr, format = "MMM YYYY") {
 
   if (/^\d{4}-\d{2}$/.test(dateStr)) {
     const date = new Date(dateStr + "-01");
-    return date.toLocaleDateString("en-US", {
+    return date.toLocaleDateString(language === "fr" ? "fr-FR" : "en-US", {
       month: "short",
       year: "numeric",
     });
@@ -85,7 +90,7 @@ function formatDate(dateStr, format = "MMM YYYY") {
   const date = new Date(dateStr);
   if (isNaN(date.getTime())) return dateStr;
 
-  return date.toLocaleDateString("en-US", {
+  return date.toLocaleDateString(language === "fr" ? "fr-FR" : "en-US", {
     month: "short",
     year: "numeric",
   });
@@ -97,18 +102,26 @@ Handlebars.registerHelper("formatLocation", formatLocation);
 
 Handlebars.registerHelper("noSchemaURL", noSchemaURL);
 
-Handlebars.registerHelper("dateRange", function (item) {
+Handlebars.registerHelper("dateRange", function (item, options) {
   let { startDate, endDate } = item;
   if (!startDate && !endDate) return "";
 
-  const formattedStart = startDate ? formatDate(startDate) : "";
-  const formattedEnd = endDate ? formatDate(endDate) : "";
+  const language =
+    (options &&
+      options.data &&
+      options.data.root &&
+      options.data.root._language) ||
+    "en";
+
+  const formattedStart = startDate ? formatDate(startDate, language) : "";
+  const formattedEnd = endDate ? formatDate(endDate, language) : "";
+  const presentText = t("present", language);
 
   let result = "";
   if (formattedStart && formattedEnd) {
     result = `${formattedStart} – ${formattedEnd}`;
   } else if (formattedStart) {
-    result = `${formattedStart} – Present`;
+    result = `${formattedStart} – ${presentText}`;
   } else if (formattedEnd) {
     result = `Until ${formattedEnd}`;
   }
@@ -173,8 +186,24 @@ Handlebars.registerHelper("first", function (array) {
   return array && array.length > 0 ? array[0] : "";
 });
 
-Handlebars.registerHelper("formatDate", function (dateStr) {
-  return formatDate(dateStr);
+Handlebars.registerHelper("formatDate", function (dateStr, options) {
+  const language =
+    (options &&
+      options.data &&
+      options.data.root &&
+      options.data.root._language) ||
+    "en";
+  return formatDate(dateStr, language);
+});
+
+Handlebars.registerHelper("t", function (key, options) {
+  const language =
+    (options &&
+      options.data &&
+      options.data.root &&
+      options.data.root._language) ||
+    "en";
+  return t(key, language);
 });
 
 Handlebars.registerHelper("substring", function (str, start, end) {
@@ -229,9 +258,15 @@ function render(resume) {
     resume.projects = resume.sideProjects;
   }
 
+  let language = (resume.meta && resume.meta.language) || "en";
+  if (language !== "en" && language !== "fr") {
+    language = "en";
+  }
+
   const html = Handlebars.compile(template)({
     css,
     resume,
+    _language: language,
   });
 
   return minify(html, minifyOptions);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{_language}}" data-language="{{_language}}">
 <head>
   <meta charset="utf-8">
   <title>{{resume.basics.name}}</title>
@@ -63,7 +63,7 @@
 {{#if (hasItems resume.skills)}}
 <section class="skills-section">
   <div class="section-title">
-    <h2>Skills</h2>
+    <h2>{{t 'skills'}}</h2>
     <div class="line"></div>
   </div>
   {{#each resume.skills}}
@@ -83,7 +83,7 @@
 {{#if (hasItems resume.work)}}
 <section class="work-section">
   <div class="section-title">
-    <h2>Work</h2>
+    <h2>{{t 'work'}}</h2>
     <div class="line"></div>
   </div>
   {{#each resume.work}}
@@ -117,7 +117,7 @@
 {{#if (hasItems resume.projects)}}
 <section class="projects-section">
   <div class="section-title">
-    <h2>Projects</h2>
+    <h2>{{t 'projects'}}</h2>
     <div class="line"></div>
   </div>
   {{#each resume.projects}}
@@ -165,7 +165,7 @@
 {{#if (hasItems resume.education)}}
 <section class="education-section">
   <div class="section-title">
-    <h2>Education</h2>
+    <h2>{{t 'education'}}</h2>
     <div class="line"></div>
   </div>
   {{#each resume.education}}
@@ -197,7 +197,7 @@
 {{#if (hasItems resume.languages)}}
 <section class="languages-section">
   <div class="section-title">
-    <h2>Languages</h2>
+    <h2>{{t 'languages'}}</h2>
     <div class="line"></div>
   </div>
   <div class="languages-grid">
@@ -218,7 +218,7 @@
 {{#if (hasItems resume.awards)}}
 <section class="awards-section">
   <div class="section-title">
-    <h2>Awards</h2>
+    <h2>{{t 'awards'}}</h2>
     <div class="line"></div>
   </div>
   {{#each resume.awards}}
@@ -240,7 +240,7 @@
 {{#if (hasItems resume.certificates)}}
 <section class="certificates-section">
   <div class="section-title">
-    <h2>Certificates</h2>
+    <h2>{{t 'certificates'}}</h2>
     <div class="line"></div>
   </div>
   {{#each resume.certificates}}
@@ -260,7 +260,7 @@
 {{#if (hasItems resume.volunteer)}}
 <section class="volunteer-section">
   <div class="section-title">
-    <h2>Volunteer</h2>
+    <h2>{{t 'volunteer'}}</h2>
     <div class="line"></div>
   </div>
   {{#each resume.volunteer}}
@@ -292,7 +292,7 @@
 {{#if (hasItems resume.publications)}}
 <section class="publications-section">
   <div class="section-title">
-    <h2>Publications</h2>
+    <h2>{{t 'publications'}}</h2>
     <div class="line"></div>
   </div>
   {{#each resume.publications}}
@@ -315,7 +315,7 @@
 {{#if (hasItems resume.references)}}
 <section class="references-section">
   <div class="section-title">
-    <h2>References</h2>
+    <h2>{{t 'references'}}</h2>
     <div class="line"></div>
   </div>
   {{#each resume.references}}
@@ -334,7 +334,7 @@
 {{#if (hasItems resume.interests)}}
 <section class="interests-section">
   <div class="section-title">
-    <h2>Interests</h2>
+    <h2>{{t 'interests'}}</h2>
     <div class="line"></div>
   </div>
   <div class="two-columns">
