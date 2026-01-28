@@ -1,6 +1,6 @@
 const translations = {
   en: {
-    work: "Work",
+    work: "Experience",
     projects: "Projects",
     skills: "Skills",
     education: "Education",
