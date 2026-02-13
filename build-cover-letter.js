@@ -3,6 +3,7 @@
 const fs = require("fs");
 const path = require("path");
 const { render } = require("./cover-letter.js");
+const { parseJSONFile } = require("./utils/parse-json.js");
 
 const args = process.argv.slice(2);
 
@@ -41,7 +42,7 @@ const coverLetterPath =
 console.log(`📄 Building cover letter from: ${coverLetterPath}`);
 
 try {
-  const coverLetterData = JSON.parse(fs.readFileSync(coverLetterPath, "utf8"));
+  const coverLetterData = parseJSONFile(coverLetterPath);
   const html = render(coverLetterData);
 
   const htmlPath = path.join(__dirname, "cover-letter.html");

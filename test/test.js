@@ -3,9 +3,10 @@
 const fs = require("fs");
 const path = require("path");
 const { render } = require("../index.js");
+const { parseJSONFile } = require("../utils/parse-json.js");
 
-const resumeData = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "sample.json"), "utf8"),
+const resumeData = parseJSONFile(
+  path.join(__dirname, "sample.json"),
 );
 
 const html = render(resumeData);

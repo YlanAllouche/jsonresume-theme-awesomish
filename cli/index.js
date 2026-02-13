@@ -5,6 +5,7 @@ const path = require("path");
 const resumeModule = require("../index.js");
 const coverLetterModule = require("../cover-letter.js");
 const { generatePDF } = require("./pdf-generator.js");
+const { parseJSONFile } = require("../utils/parse-json.js");
 
 const args = process.argv.slice(2);
 
@@ -61,7 +62,7 @@ console.log(
 );
 
 try {
-  const jsonData = JSON.parse(fs.readFileSync(absolutePath, "utf8"));
+  const jsonData = parseJSONFile(absolutePath);
   const renderModule = isLetter ? coverLetterModule : resumeModule;
   const html = renderModule.render(jsonData);
 

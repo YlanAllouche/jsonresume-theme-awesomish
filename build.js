@@ -3,6 +3,7 @@
 const fs = require("fs");
 const path = require("path");
 const { render } = require("./index.js");
+const { parseJSONFile } = require("./utils/parse-json.js");
 
 const args = process.argv.slice(2);
 const pdfFlag = args.includes("--pdf");
@@ -16,7 +17,7 @@ const outputName = nonFlagArgs[2] || "resume";
 console.log(`📄 Building resume from: ${resumePath}`);
 
 try {
-  const resumeData = JSON.parse(fs.readFileSync(resumePath, "utf8"));
+  const resumeData = parseJSONFile(resumePath);
 
   const html = render(resumeData);
 
