@@ -1,7 +1,7 @@
 # JSON Resume Theme: Awesomeish
 
 A clean, modern, and condensed JSON Resume theme heavily "inspired" by [Awesome-CV](https://github.com/posquit0/Awesome-CV) and [jsoncv](https://github.com/reorx/jsoncv) 
-Look at `./output` folder for examples
+Look at [output](./output) folder for examples
 
 This project doubles as a cover (and even generic) letter generator, going a bit beyond the `jsonresume` schema
 
