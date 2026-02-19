@@ -5,29 +5,27 @@ const PizZip = require("pizzip");
 function createTemplate() {
   const outputPath = __dirname + "/resume-boring-template.docx";
   
-  // Font sizes: 21 = 10.5pt (minimum per wiki), 22 = 11pt, 24 = 12pt
   const fontSizeNormal = "21";
   const fontSizeHeader = "24";
   const fontSizeName = "36";
   const fontSizeLabel = "22";
   const fontSizePosition = "22";
   
-  // Build document content with enhanced formatting
   let bodyContent = '';
   
-  // Name - centered, large, bold
+  // Name
   bodyContent += `<w:p>
     <w:pPr><w:jc w:val="center"/></w:pPr>
     <w:r><w:rPr><w:b/><w:sz w:val="${fontSizeName}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{name}</w:t></w:r>
   </w:p>`;
   
-  // Label (job title) - centered
-  bodyContent += `{#label}<w:p>
+  // Label
+  bodyContent += `<w:p>
     <w:pPr><w:jc w:val="center"/></w:pPr>
     <w:r><w:rPr><w:sz w:val="${fontSizeLabel}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{label}</w:t></w:r>
-  </w:p>{/label}`;
+  </w:p>`;
   
-  // Contact info - centered with regular pipes (not bold)
+  // Contact info
   bodyContent += `<w:p>
     <w:pPr><w:jc w:val="center"/></w:pPr>
     <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{contactInfoStart}</w:t></w:r>
@@ -37,157 +35,171 @@ function createTemplate() {
     <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{contactInfoEnd}</w:t></w:r>
   </w:p>`;
   
-  // Summary section with extra blank space after (left-aligned, not justified)
-  bodyContent += `{#summary}<w:p>
+  // Summary
+  bodyContent += `<w:p>
     <w:pPr><w:spacing w:before="120" w:after="240"/></w:pPr>
     <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{summary}</w:t></w:r>
-  </w:p>{/summary}`;
+  </w:p>`;
   
-  // Skills Section Header with bottom border (black, not red)
+  // Skills Section Header
   bodyContent += `<w:p>
     <w:pPr>
       <w:pBdr>
         <w:bottom w:val="single" w:sz="6" w:space="1" w:color="000000"/>
       </w:pBdr>
-      <w:spacing w:after="120"/>
+      <w:spacing w:after="40"/>
     </w:pPr>
-    <w:r><w:rPr><w:b/><w:sz w:val="${fontSizeHeader}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>Skills</w:t></w:r>
+    <w:r><w:rPr><w:b/><w:sz w:val="${fontSizeHeader}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{skillsHeader}</w:t></w:r>
   </w:p>`;
   
-  // Skills loop - paragraph loop style
+  // Skills loop - each skill on its own line
   bodyContent += `<w:p>
-    <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{#skills}</w:t></w:r>
+    <w:pPr><w:spacing w:before="0" w:after="0"/></w:pPr>
+    <w:r><w:rPr><w:sz w:val="1"/></w:rPr><w:t>{#skills}</w:t></w:r>
   </w:p>
   <w:p>
-    <w:pPr><w:spacing w:after="80"/></w:pPr>
-    <w:r><w:rPr><w:b/><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{name}: </w:t></w:r>
+    <w:pPr><w:spacing w:before="10" w:after="10"/></w:pPr>
+    <w:r><w:rPr><w:b/><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{skillName}: </w:t></w:r>
     <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{keywords}</w:t></w:r>
   </w:p>
   <w:p>
-    <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{/skills}</w:t></w:r>
+    <w:pPr><w:spacing w:before="0" w:after="0"/></w:pPr>
+    <w:r><w:rPr><w:sz w:val="1"/></w:rPr><w:t>{/skills}</w:t></w:r>
   </w:p>`;
   
-  // Work Experience Section Header with bottom border (black, not red)
+  // Work Section Header
   bodyContent += `<w:p>
     <w:pPr>
       <w:pBdr>
         <w:bottom w:val="single" w:sz="6" w:space="1" w:color="000000"/>
       </w:pBdr>
-      <w:spacing w:before="240" w:after="120"/>
+      <w:spacing w:before="240" w:after="40"/>
     </w:pPr>
-    <w:r><w:rPr><w:b/><w:sz w:val="${fontSizeHeader}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>Experience</w:t></w:r>
+    <w:r><w:rPr><w:b/><w:sz w:val="${fontSizeHeader}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{workHeader}</w:t></w:r>
   </w:p>`;
   
-  // Work entries - position bold, company not bold, dates on same line
+  // Work entries with paragraph loop - loop tags on their own lines
   bodyContent += `<w:p>
-    <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{#work}</w:t></w:r>
-  </w:p>
-  <w:p>
+    <w:pPr><w:spacing w:before="0" w:after="0"/></w:pPr>
+    <w:r><w:rPr><w:sz w:val="1"/></w:rPr><w:t>{#work}</w:t></w:r>
+  </w:p>`;
+  
+  bodyContent += `<w:p>
     <w:pPr>
-      <w:spacing w:before="120"/>
       <w:tabs>
         <w:tab w:val="right" w:pos="9360"/>
       </w:tabs>
     </w:pPr>
     <w:r><w:rPr><w:b/><w:sz w:val="${fontSizePosition}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{position}</w:t></w:r>
-    <w:r><w:rPr><w:sz w:val="${fontSizePosition}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>, {name}</w:t></w:r>
+    <w:r><w:rPr><w:sz w:val="${fontSizePosition}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>, {companyName}</w:t></w:r>
     <w:r><w:rPr><w:sz w:val="${fontSizePosition}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t xml:space="preserve">	</w:t></w:r>
     <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{startDate} – {endDate}</w:t></w:r>
+  </w:p>`;
+  
+  // Work summary - conditional, only if not empty
+  bodyContent += `<w:p>
+    <w:pPr><w:spacing w:before="0" w:after="0"/></w:pPr>
+    <w:r><w:rPr><w:sz w:val="1"/></w:rPr><w:t>{#hasSummary}</w:t></w:r>
   </w:p>
-  {#summary}<w:p>
-    <w:pPr><w:spacing w:before="60" w:after="60"/></w:pPr>
+  <w:p>
+    <w:pPr><w:spacing w:before="20" w:after="20"/></w:pPr>
     <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{summary}</w:t></w:r>
-  </w:p>{/summary}
-  <w:p>
-    <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{#highlights}</w:t></w:r>
   </w:p>
   <w:p>
-    <w:pPr>
-      <w:spacing w:after="40"/>
-    </w:pPr>
-    <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>• {.}</w:t></w:r>
-  </w:p>
-  <w:p>
-    <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{/highlights}</w:t></w:r>
-  </w:p>
-  <w:p>
-    <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{/work}</w:t></w:r>
+    <w:pPr><w:spacing w:before="0" w:after="0"/></w:pPr>
+    <w:r><w:rPr><w:sz w:val="1"/></w:rPr><w:t>{/hasSummary}</w:t></w:r>
   </w:p>`;
   
-  // Projects Section Header with bottom border (black, not red)
+  // Work highlights - each on its own line
+  bodyContent += `<w:p>
+    <w:pPr><w:spacing w:before="0" w:after="0"/></w:pPr>
+    <w:r><w:rPr><w:sz w:val="1"/></w:rPr><w:t>{#highlights}</w:t></w:r>
+  </w:p>
+  <w:p>
+    <w:pPr><w:spacing w:before="5" w:after="5"/></w:pPr>
+    <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>● {text}</w:t></w:r>
+  </w:p>
+  <w:p>
+    <w:pPr><w:spacing w:before="0" w:after="0"/></w:pPr>
+    <w:r><w:rPr><w:sz w:val="1"/></w:rPr><w:t>{/highlights}</w:t></w:r>
+  </w:p>
+  
+  <!-- Add spacing between work entries -->
+  <w:p>
+    <w:pPr><w:spacing w:before="120" w:after="0"/></w:pPr>
+    <w:r><w:rPr><w:sz w:val="1"/></w:rPr><w:t> </w:t></w:r>
+  </w:p>`;
+  
+  bodyContent += `<w:p>
+    <w:pPr><w:spacing w:before="0" w:after="0"/></w:pPr>
+    <w:r><w:rPr><w:sz w:val="1"/></w:rPr><w:t>{/work}</w:t></w:r>
+  </w:p>`;
+  
+  // Projects Section Header
   bodyContent += `<w:p>
     <w:pPr>
       <w:pBdr>
         <w:bottom w:val="single" w:sz="6" w:space="1" w:color="000000"/>
       </w:pBdr>
-      <w:spacing w:before="240" w:after="120"/>
+      <w:spacing w:before="240" w:after="40"/>
     </w:pPr>
-    <w:r><w:rPr><w:b/><w:sz w:val="${fontSizeHeader}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>Projects</w:t></w:r>
+    <w:r><w:rPr><w:b/><w:sz w:val="${fontSizeHeader}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{projectsHeader}</w:t></w:r>
   </w:p>`;
   
-  // Projects entries - name and URL on same line
+  // Projects entries with paragraph loop
   bodyContent += `<w:p>
-    <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{#projects}</w:t></w:r>
-  </w:p>
-  <w:p>
+    <w:pPr><w:spacing w:before="0" w:after="0"/></w:pPr>
+    <w:r><w:rPr><w:sz w:val="1"/></w:rPr><w:t>{#projects}</w:t></w:r>
+  </w:p>`;
+  
+  bodyContent += `<w:p>
     <w:pPr>
-      <w:spacing w:before="120"/>
       <w:tabs>
         <w:tab w:val="right" w:pos="9360"/>
       </w:tabs>
     </w:pPr>
-    <w:r><w:rPr><w:b/><w:sz w:val="${fontSizePosition}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{name}</w:t></w:r>
-    {#url}<w:r><w:rPr><w:sz w:val="${fontSizePosition}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t xml:space="preserve">	</w:t></w:r>
-    <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{url}</w:t></w:r>{/url}
-  </w:p>
-  <w:p>
-    <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{#highlights}</w:t></w:r>
-  </w:p>
-  <w:p>
-    <w:pPr>
-      <w:spacing w:after="40"/>
-    </w:pPr>
-    <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>• {.}</w:t></w:r>
-  </w:p>
-  <w:p>
-    <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{/highlights}</w:t></w:r>
-  </w:p>
-  <w:p>
-    <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{/projects}</w:t></w:r>
-  </w:p>`;
-  
-  // Education Section Header with bottom border (black, not red)
-  bodyContent += `<w:p>
-    <w:pPr>
-      <w:pBdr>
-        <w:bottom w:val="single" w:sz="6" w:space="1" w:color="000000"/>
-      </w:pBdr>
-      <w:spacing w:before="240" w:after="120"/>
-    </w:pPr>
-    <w:r><w:rPr><w:b/><w:sz w:val="${fontSizeHeader}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>Education</w:t></w:r>
-  </w:p>`;
-  
-  // Education entries - institution and dates on same line
-  bodyContent += `<w:p>
-    <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{#education}</w:t></w:r>
-  </w:p>
-  <w:p>
-    <w:pPr>
-      <w:spacing w:before="120"/>
-      <w:tabs>
-        <w:tab w:val="right" w:pos="9360"/>
-      </w:tabs>
-    </w:pPr>
-    <w:r><w:rPr><w:b/><w:sz w:val="${fontSizePosition}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{institution}</w:t></w:r>
+    <w:r><w:rPr><w:b/><w:sz w:val="${fontSizePosition}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{projectName}</w:t></w:r>
     <w:r><w:rPr><w:sz w:val="${fontSizePosition}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t xml:space="preserve">	</w:t></w:r>
-    <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{startDate}{#endDate} – {endDate}{/endDate}</w:t></w:r>
+    <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{url}</w:t></w:r>
+  </w:p>`;
+  
+  // Project summary - conditional, only if not empty
+  bodyContent += `<w:p>
+    <w:pPr><w:spacing w:before="0" w:after="0"/></w:pPr>
+    <w:r><w:rPr><w:sz w:val="1"/></w:rPr><w:t>{#hasSummary}</w:t></w:r>
   </w:p>
   <w:p>
-    <w:pPr><w:spacing w:after="80"/></w:pPr>
-    <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{studyType}{#area} in {area}{/area}</w:t></w:r>
+    <w:pPr><w:spacing w:before="20" w:after="20"/></w:pPr>
+    <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{summary}</w:t></w:r>
   </w:p>
   <w:p>
-    <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>{/education}</w:t></w:r>
+    <w:pPr><w:spacing w:before="0" w:after="0"/></w:pPr>
+    <w:r><w:rPr><w:sz w:val="1"/></w:rPr><w:t>{/hasSummary}</w:t></w:r>
+  </w:p>`;
+  
+  // Project highlights - each on its own line
+  bodyContent += `<w:p>
+    <w:pPr><w:spacing w:before="0" w:after="0"/></w:pPr>
+    <w:r><w:rPr><w:sz w:val="1"/></w:rPr><w:t>{#highlights}</w:t></w:r>
+  </w:p>
+  <w:p>
+    <w:pPr><w:spacing w:before="5" w:after="5"/></w:pPr>
+    <w:r><w:rPr><w:sz w:val="${fontSizeNormal}"/><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/></w:rPr><w:t>● {text}</w:t></w:r>
+  </w:p>
+  <w:p>
+    <w:pPr><w:spacing w:before="0" w:after="0"/></w:pPr>
+    <w:r><w:rPr><w:sz w:val="1"/></w:rPr><w:t>{/highlights}</w:t></w:r>
+  </w:p>
+  
+  <!-- Add spacing between project entries -->
+  <w:p>
+    <w:pPr><w:spacing w:before="120" w:after="0"/></w:pPr>
+    <w:r><w:rPr><w:sz w:val="1"/></w:rPr><w:t> </w:t></w:r>
+  </w:p>`;
+  
+  bodyContent += `<w:p>
+    <w:pPr><w:spacing w:before="0" w:after="0"/></w:pPr>
+    <w:r><w:rPr><w:sz w:val="1"/></w:rPr><w:t>{/projects}</w:t></w:r>
   </w:p>`;
   
   const documentXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

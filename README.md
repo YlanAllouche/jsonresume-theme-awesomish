@@ -8,6 +8,7 @@ This project doubles as a cover (and even generic) letter generator, going a bit
 ## Recent Updates
 
 - **Standalone CLI**: New `awesomish` command-line tool for generating resumes and cover letters from JSON
+- **DOCX Export**: Added `--boring` flag for ATS-friendly DOCX generation using docxtemplater
 - **French Localization**: Full French language support added
 - **Optimized Layout**: Improved space usage with skills prioritized over work experience
 - **No External Dependencies**: Removed `resume-cli` dependency for lighter installation
@@ -18,6 +19,28 @@ This project doubles as a cover (and even generic) letter generator, going a bit
 - **Smart Grouping**: Conditional underlines for multiple positions at the same company
 - **Condensed Design**: Optimized sections like languages and skills for better space usage
 - **Complete `jsonresume` schema support**: All standard resume sections supported
+- **DOCX Export**: Generate ATS-friendly DOCX resumes with `--boring` flag
+
+## Boring Mode (DOCX Generation)
+
+For a traditional, ATS-friendly resume format:
+
+```bash
+awesomish ./resume.json --boring
+```
+
+This generates a clean DOCX file using docxtemplater, perfect for:
+- Applicant Tracking Systems (ATS)
+- Traditional corporate applications
+- Manual editing in Word
+
+Note: `--boring` cannot be used with `--letter` at the moment.
+
+```bash
+node create-template.js
+```
+
+This will create a new `resume-boring-template.docx` with docxtemplater placeholders.
 
 ## Installation & Usage
 
@@ -42,11 +65,12 @@ cd jsonresume-theme-awesomeish
 # Install globally from local directory
 npm install -g .
 
-# Now you can use the awesomish command anywhere
-awesomish ./resume.json
-awesomish ./resume.json --letter
-awesomish ./resume.json --a4
-```
+ # Now you can use the awesomish command anywhere
+ awesomish ./resume.json
+ awesomish ./resume.json --letter
+ awesomish ./resume.json --a4
+ awesomish ./resume.json --boring
+ ```
 
 ⚠️ **Note**: Installing via `npm install -g github:YlanAllouche/jsonresume-theme-awesomeish` does not work due to npm limitations with symlink handling during GitHub clones. Use the local installation method above.
 

@@ -1,9 +1,16 @@
 const fs = require("fs");
 const PizZip = require("pizzip");
 const Docxtemplater = require("docxtemplater");
+const { t } = require("./i18n");
 
-function formatDate(dateStr) {
+function formatDate(dateStr, language = "en") {
   if (!dateStr) return "";
+
+  if (language !== "en" && language !== "fr") {
+    language = "en";
+  }
+
+  const locale = language === "fr" ? "fr-FR" : "en-US";
 
   if (/^\d{4}$/.test(dateStr)) {
     return dateStr;
@@ -11,7 +18,7 @@ function formatDate(dateStr) {
 
   if (/^\d{4}-\d{2}$/.test(dateStr)) {
     const date = new Date(dateStr + "-01");
-    return date.toLocaleDateString("en-US", {
+    return date.toLocaleDateString(locale, {
       month: "short",
       year: "numeric",
     });
@@ -20,7 +27,7 @@ function formatDate(dateStr) {
   const date = new Date(dateStr);
   if (isNaN(date.getTime())) return dateStr;
 
-  return date.toLocaleDateString("en-US", {
+  return date.toLocaleDateString(locale, {
     month: "short",
     year: "numeric",
   });
@@ -48,8 +55,6 @@ function formatContactInfoParts(basics) {
   }
   if (basics.url) parts.push(basics.url);
   
-  // Split into three segments for bold pipe separators
-  // First part, middle parts, last part
   if (parts.length === 0) {
     return { start: "", middle: "", end: "" };
   } else if (parts.length === 1) {
@@ -59,58 +64,59 @@ function formatContactInfoParts(basics) {
   } else if (parts.length === 3) {
     return { start: parts[0], middle: parts[1], end: parts[2] };
   } else {
-    // 4 parts - email | phone | location | url
     return { start: parts[0], middle: parts[1] + " | " + parts[2], end: parts[3] };
   }
 }
 
 function transformSkills(skills) {
   if (!skills || skills.length === 0) return [];
-
-  return skills.map(skill => ({
-    name: skill.name || "",
-    keywords: (skill.keywords || []).join(", ")
+  
+  return skills.map((skill, index) => ({
+    skillName: skill.name || "",
+    keywords: (skill.keywords || []).join(", "),
+    hasMoreSkills: index < skills.length - 1
   }));
 }
 
-function transformWork(work) {
+function transformWork(work, language) {
   if (!work || work.length === 0) return [];
-
+  
   return work.map(job => {
+    const highlights = (job.highlights || []).map((h, i, arr) => ({
+      text: h,
+      hasMoreHighlights: i < arr.length - 1
+    }));
+    
     return {
-      name: job.name || "",
       position: job.position || "",
-      startDate: formatDate(job.startDate),
-      endDate: formatDate(job.endDate) || "Present",
+      companyName: job.name || "",
+      startDate: formatDate(job.startDate, language),
+      endDate: formatDate(job.endDate, language) || t("present", language),
+      hasSummary: !!(job.summary && job.summary.trim()),
       summary: job.summary || "",
-      highlights: job.highlights || []
+      hasHighlights: highlights.length > 0,
+      highlights: highlights
     };
   });
 }
 
 function transformProjects(projects) {
   if (!projects || projects.length === 0) return [];
-
-  return projects.map(project => ({
-    name: project.name || "",
-    url: project.url || "",
-    highlights: project.highlights || []
-  }));
-}
-
-function transformEducation(education) {
-  if (!education || education.length === 0) return [];
-
-  return education.map(edu => {
-    const startDate = formatDate(edu.startDate);
-    const endDate = formatDate(edu.endDate);
+  
+  return projects.map(project => {
+    const highlights = (project.highlights || []).map((h, i, arr) => ({
+      text: h,
+      hasMoreHighlights: i < arr.length - 1
+    }));
     
     return {
-      institution: edu.institution || "",
-      studyType: edu.studyType || "",
-      area: edu.area || "",
-      startDate: startDate,
-      endDate: endDate
+      projectName: project.name || "",
+      hasUrl: !!(project.url && project.url.trim()),
+      url: project.url || "",
+      hasSummary: !!(project.description && project.description.trim()),
+      summary: project.description || "",
+      hasHighlights: highlights.length > 0,
+      highlights: highlights
     };
   });
 }
@@ -119,9 +125,16 @@ function transformData(resume) {
   const basics = resume.basics || {};
   const contactParts = formatContactInfoParts(basics);
 
-  // Format data to match the enhanced template structure
+  let language = (resume.meta && resume.meta.language) || "en";
+  if (language !== "en" && language !== "fr") {
+    language = "en";
+  }
+
+  const skills = transformSkills(resume.skills);
+  const work = transformWork(resume.work, language);
+  const projects = transformProjects(resume.projects);
+
   const data = {
-    // Header
     name: basics.name || "",
     label: basics.label || "",
     contactInfoStart: contactParts.start,
@@ -129,11 +142,17 @@ function transformData(resume) {
     contactInfoEnd: contactParts.end,
     summary: basics.summary || "",
     
-    // Sections
-    skills: transformSkills(resume.skills),
-    work: transformWork(resume.work),
-    projects: transformProjects(resume.projects),
-    education: transformEducation(resume.education)
+    hasSkills: skills.length > 0,
+    skills: skills,
+    skillsHeader: t("skills", language),
+    
+    hasWork: work.length > 0,
+    work: work,
+    workHeader: t("work", language),
+    
+    hasProjects: projects.length > 0,
+    projects: projects,
+    projectsHeader: t("projects", language)
   };
 
   return data;
@@ -153,7 +172,7 @@ function render(resume) {
 
   const doc = new Docxtemplater(zip, {
     paragraphLoop: true,
-    linebreaks: true
+    linebreaks: true,
   });
 
   try {
